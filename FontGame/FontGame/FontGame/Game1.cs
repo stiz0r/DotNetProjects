@@ -17,13 +17,17 @@ namespace FontGame
     /// </summary>
     public class Game1 : Microsoft.Xna.Framework.Game
     {
-        GraphicsDeviceManager graphics;
-        SpriteBatch spriteBatch;
+        private GraphicsDeviceManager graphics;
+        private SpriteBatch spriteBatch;
+
+        private Player Player;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
+
+            Player = new Player(this);
 
             // Frame rate is 30 fps by default for Windows Phone.
             TargetElapsedTime = TimeSpan.FromTicks(333333);
@@ -42,6 +46,10 @@ namespace FontGame
         {
             // TODO: Add your initialization logic here
 
+            
+            
+            Player.Initialize();
+
             base.Initialize();
         }
 
@@ -53,7 +61,8 @@ namespace FontGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
-
+            Player.LoadContent();
+            
             // TODO: use this.Content to load your game content here
         }
 
@@ -78,6 +87,7 @@ namespace FontGame
                 this.Exit();
 
             // TODO: Add your update logic here
+            Player.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -90,7 +100,9 @@ namespace FontGame
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
+            spriteBatch.Begin();
+            Player.Draw(gameTime, spriteBatch);
+            spriteBatch.End();
 
             base.Draw(gameTime);
         }
