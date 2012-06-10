@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FontGame", "FontGame\FontGame\FontGame.csproj", "{77D2FBC2-BF06-43F6-888C-9132E55C14D7}"
+EndProject
+Project("{96E2B04D-8817-42C6-938A-82C39BA4D311}") = "FontGameContent", "FontGame\FontGameContent\FontGameContent.contentproj", "{5B3F81FE-0FDF-4B6D-A88C-0802ABD16A8A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Windows Phone = Debug|Windows Phone
+		Release|Windows Phone = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77D2FBC2-BF06-43F6-888C-9132E55C14D7}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{77D2FBC2-BF06-43F6-888C-9132E55C14D7}.Debug|Windows Phone.Build.0 = Debug|Windows Phone
+		{77D2FBC2-BF06-43F6-888C-9132E55C14D7}.Debug|Windows Phone.Deploy.0 = Debug|Windows Phone
+		{77D2FBC2-BF06-43F6-888C-9132E55C14D7}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+		{77D2FBC2-BF06-43F6-888C-9132E55C14D7}.Release|Windows Phone.Build.0 = Release|Windows Phone
+		{77D2FBC2-BF06-43F6-888C-9132E55C14D7}.Release|Windows Phone.Deploy.0 = Release|Windows Phone
+		{5B3F81FE-0FDF-4B6D-A88C-0802ABD16A8A}.Debug|Windows Phone.ActiveCfg = Debug|Windows Phone
+		{5B3F81FE-0FDF-4B6D-A88C-0802ABD16A8A}.Release|Windows Phone.ActiveCfg = Release|Windows Phone
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
