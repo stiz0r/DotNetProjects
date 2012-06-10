@@ -65,6 +65,8 @@
     <Reference Include="System.Net" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bullet\Bullet.cs" />
+    <Compile Include="Bullet\GunBullet.cs" />
     <Compile Include="Enemy\Enemy.cs" />
     <Compile Include="Enemy\EnemyHandler.cs" />
     <Compile Include="Player\Player.cs" />
