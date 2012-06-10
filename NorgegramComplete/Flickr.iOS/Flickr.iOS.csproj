@@ -1,0 +1,699 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{9B086C5F-3F3C-477D-B19F-91418AE8C6D9}</ProjectGuid>
+    <ProjectTypeGuids>{6BC8ED88-2882-458C-8E55-DFD12B67127B};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Flickr.iOS</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AssemblyName>Flickr.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AssemblyName>Flickr.iOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'DebugDroid|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\DebugDroid</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>FlickriOS</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'ReleaseDroid|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\ReleaseDroid</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <AssemblyName>FlickriOS</AssemblyName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="monotouch" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Exceptions\" />
+    <Folder Include="OpenCF\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\Flickr\ActivityEvent.cs">
+      <Link>ActivityEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ActivityItem.cs">
+      <Link>ActivityItem.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ActivityItemCollection.cs">
+      <Link>ActivityItemCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ApiKeyRequiredException.cs">
+      <Link>ApiKeyRequiredException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\AssemblyInfo.cs">
+      <Link>AssemblyInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\AssemblyInfoMore.cs">
+      <Link>AssemblyInfoMore.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Auth.cs">
+      <Link>Auth.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\AuthenticationRequiredException.cs">
+      <Link>AuthenticationRequiredException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Blog.cs">
+      <Link>Blog.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\BlogCollection.cs">
+      <Link>BlogCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\BlogService.cs">
+      <Link>BlogService.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\BlogServiceCollection.cs">
+      <Link>BlogServiceCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\BoundaryBox.cs">
+      <Link>BoundaryBox.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Cache.cs">
+      <Link>Cache.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Cluster.cs">
+      <Link>Cluster.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ClusterCollection.cs">
+      <Link>ClusterCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Collection.cs">
+      <Link>Collection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\CollectionCollection.cs">
+      <Link>CollectionCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\CollectionInfo.cs">
+      <Link>CollectionInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\CollectionSet.cs">
+      <Link>CollectionSet.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Contact.cs">
+      <Link>Contact.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ContactCollection.cs">
+      <Link>ContactCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Context.cs">
+      <Link>Context.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\CsvFile.cs">
+      <Link>CsvFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\CsvFileCollection.cs">
+      <Link>CsvFileCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\DateGranularity.cs">
+      <Link>DateGranularity.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\EchoResponseDictionary.cs">
+      <Link>EchoResponseDictionary.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Enums.cs">
+      <Link>Enums.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ExceptionHandler.cs">
+      <Link>ExceptionHandler.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ExifTag.cs">
+      <Link>ExifTag.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ExifTagCollection.cs">
+      <Link>ExifTagCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FavoriteContext.cs">
+      <Link>FavoriteContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FavoriteContextPhoto.cs">
+      <Link>FavoriteContextPhoto.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_ActivityAsync.cs">
+      <Link>Flickr_ActivityAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_AuthAsync.cs">
+      <Link>Flickr_AuthAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_AuthCalc.cs">
+      <Link>Flickr_AuthCalc.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_BlogsAsync.cs">
+      <Link>Flickr_BlogsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_CollectionsAsync.cs">
+      <Link>Flickr_CollectionsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_CommonsAsync.cs">
+      <Link>Flickr_CommonsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_ContactsAsync.cs">
+      <Link>Flickr_ContactsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_FavoritesAsync.cs">
+      <Link>Flickr_FavoritesAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_GalleriesAsync.cs">
+      <Link>Flickr_GalleriesAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_GetResponseAsync.cs">
+      <Link>Flickr_GetResponseAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_GroupsAsync.cs">
+      <Link>Flickr_GroupsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_InterestingnessAsync.cs">
+      <Link>Flickr_InterestingnessAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_MachineTagsAsync.cs">
+      <Link>Flickr_MachineTagsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_NotesAsync.cs">
+      <Link>Flickr_NotesAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_OAuth.cs">
+      <Link>Flickr_OAuth.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_OAuthAsync.cs">
+      <Link>Flickr_OAuthAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_OAuthSync.cs">
+      <Link>Flickr_OAuthSync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PandaAsync.cs">
+      <Link>Flickr_PandaAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PeopleAsync.cs">
+      <Link>Flickr_PeopleAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PhotosAsync.cs">
+      <Link>Flickr_PhotosAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PhotosCommentsAsync.cs">
+      <Link>Flickr_PhotosCommentsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PhotosetsAsync.cs">
+      <Link>Flickr_PhotosetsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PhotosGeoAsync.cs">
+      <Link>Flickr_PhotosGeoAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PhotosMiscAsync.cs">
+      <Link>Flickr_PhotosMiscAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PhotosPeopleAsync.cs">
+      <Link>Flickr_PhotosPeopleAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PlacesAsync.cs">
+      <Link>Flickr_PlacesAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_PrefsAsync.cs">
+      <Link>Flickr_PrefsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_ReflectionAsync.cs">
+      <Link>Flickr_ReflectionAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_StatsAsync.cs">
+      <Link>Flickr_StatsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_TagsAsync.cs">
+      <Link>Flickr_TagsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_TestAsync.cs">
+      <Link>Flickr_TestAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_UploadAsync.cs">
+      <Link>Flickr_UploadAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr_UrlsAsync.cs">
+      <Link>Flickr_UrlsAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Flickr.cs">
+      <Link>Flickr.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrApiException.cs">
+      <Link>FlickrApiException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrConfigurationManager.cs">
+      <Link>FlickrConfigurationManager.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrConfigurationSettings.cs">
+      <Link>FlickrConfigurationSettings.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrException.cs">
+      <Link>FlickrException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrResponder.cs">
+      <Link>FlickrResponder.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrResponderAsync.cs">
+      <Link>FlickrResponderAsync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrResponderSync.cs">
+      <Link>FlickrResponderSync.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrResult.cs">
+      <Link>FlickrResult.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\FlickrWebException.cs">
+      <Link>FlickrWebException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Gallery.cs">
+      <Link>Gallery.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GalleryCollection.cs">
+      <Link>GalleryCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GalleryPhoto.cs">
+      <Link>GalleryPhoto.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GalleryPhotoCollection.cs">
+      <Link>GalleryPhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GeoAccuracy.cs">
+      <Link>GeoAccuracy.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GeoContext.cs">
+      <Link>GeoContext.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GeoPermissions.cs">
+      <Link>GeoPermissions.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GeoPermissionType.cs">
+      <Link>GeoPermissionType.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GlobalSuppressions.cs">
+      <Link>GlobalSuppressions.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GroupCategory.cs">
+      <Link>GroupCategory.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Groups.cs">
+      <Link>Groups.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\GroupSearchResultCollection.cs">
+      <Link>GroupSearchResultCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\HotTag.cs">
+      <Link>HotTag.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\HotTagCollection.cs">
+      <Link>HotTagCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\IFlickrParsable.cs">
+      <Link>IFlickrParsable.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Institution.cs">
+      <Link>Institution.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\InstitutionCollection.cs">
+      <Link>InstitutionCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\LicenseCollection.cs">
+      <Link>LicenseCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Licenses.cs">
+      <Link>Licenses.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\LicenseType.cs">
+      <Link>LicenseType.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\LockFile.cs">
+      <Link>LockFile.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MD5Core.cs">
+      <Link>MD5Core.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MD5Managed.cs">
+      <Link>MD5Managed.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MediaType.cs">
+      <Link>MediaType.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Member.cs">
+      <Link>Member.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MemberCollection.cs">
+      <Link>MemberCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MemberGroupInfo.cs">
+      <Link>MemberGroupInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MemberGroupInfoCollection.cs">
+      <Link>MemberGroupInfoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MemberTypes.cs">
+      <Link>MemberTypes.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\MethodCollection.cs">
+      <Link>MethodCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Namespace.cs">
+      <Link>Namespace.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\NamespaceCollection.cs">
+      <Link>NamespaceCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\NoResponse.cs">
+      <Link>NoResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OAuthAccessToken.cs">
+      <Link>OAuthAccessToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OAuthException.cs">
+      <Link>OAuthException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OAuthRequestToken.cs">
+      <Link>OAuthRequestToken.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PagedPhotoCollection.cs">
+      <Link>PagedPhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Pair.cs">
+      <Link>Pair.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PairCollection.cs">
+      <Link>PairCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PandaPhotoCollection.cs">
+      <Link>PandaPhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ParsingException.cs">
+      <Link>ParsingException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PartialSearchOptions.cs">
+      <Link>PartialSearchOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PeoplePhotoCollection.cs">
+      <Link>PeoplePhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PersistentCache.cs">
+      <Link>PersistentCache.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Person.cs">
+      <Link>Person.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Photo.cs">
+      <Link>Photo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoCollection.cs">
+      <Link>PhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoComment.cs">
+      <Link>PhotoComment.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoCommentCollection.cs">
+      <Link>PhotoCommentCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoCountCollection.cs">
+      <Link>PhotoCountCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoFavorite.cs">
+      <Link>PhotoFavorite.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoFavoriteCollection.cs">
+      <Link>PhotoFavoriteCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoInfo.cs">
+      <Link>PhotoInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoPermissions.cs">
+      <Link>PhotoPermissions.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoPerson.cs">
+      <Link>PhotoPerson.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoPersonCollection.cs">
+      <Link>PhotoPersonCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoSearchExtras.cs">
+      <Link>PhotoSearchExtras.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoSearchOptions.cs">
+      <Link>PhotoSearchOptions.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoSearchOrder.cs">
+      <Link>PhotoSearchOrder.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Photoset.cs">
+      <Link>Photoset.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotoSetCollection.cs">
+      <Link>PhotoSetCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotosetCommentCollection.cs">
+      <Link>PhotosetCommentCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PhotosetPhotoCollection.cs">
+      <Link>PhotosetPhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Place.cs">
+      <Link>Place.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PlaceCollection.cs">
+      <Link>PlaceCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PlaceInfo.cs">
+      <Link>PlaceInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PlaceType.cs">
+      <Link>PlaceType.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PlaceTypeInfo.cs">
+      <Link>PlaceTypeInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PlaceTypeInfoCollection.cs">
+      <Link>PlaceTypeInfoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PoolPrivacy.cs">
+      <Link>PoolPrivacy.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PopularitySort.cs">
+      <Link>PopularitySort.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PopularPhoto.cs">
+      <Link>PopularPhoto.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PopularPhotoCollection.cs">
+      <Link>PopularPhotoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Predicate.cs">
+      <Link>Predicate.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PredicateCollection.cs">
+      <Link>PredicateCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PublicGroupInfo.cs">
+      <Link>PublicGroupInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\PublicGroupInfoCollection.cs">
+      <Link>PublicGroupInfoCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ResponseXmlException.cs">
+      <Link>ResponseXmlException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\SafeNativeMethods.cs">
+      <Link>SafeNativeMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\SerializableAttribute.cs">
+      <Link>SerializableAttribute.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ShapeDataCollection.cs">
+      <Link>ShapeDataCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ShapeDataSL.cs">
+      <Link>ShapeDataSL.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\SignatureRequiredException.cs">
+      <Link>SignatureRequiredException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Sizes.cs">
+      <Link>Sizes.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\StatDomain.cs">
+      <Link>StatDomain.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\StatDomainCollection.cs">
+      <Link>StatDomainCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\StatReferrer.cs">
+      <Link>StatReferrer.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\StatReferrerCollection.cs">
+      <Link>StatReferrerCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Stats.cs">
+      <Link>Stats.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\StatViews.cs">
+      <Link>StatViews.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Tags.cs">
+      <Link>Tags.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Ticket.cs">
+      <Link>Ticket.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\TicketCollection.cs">
+      <Link>TicketCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\UnknownResponseSL.cs">
+      <Link>UnknownResponseSL.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\UploadProgressEvent.cs">
+      <Link>UploadProgressEvent.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\UploadResponse.cs">
+      <Link>UploadResponse.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\User.cs">
+      <Link>User.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\UserGeoPermissions.cs">
+      <Link>UserGeoPermissions.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\UtilityMethods.cs">
+      <Link>UtilityMethods.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Value.cs">
+      <Link>Value.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\ValueCollection.cs">
+      <Link>ValueCollection.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\VideoInfo.cs">
+      <Link>VideoInfo.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\BadUrlFoundException.cs">
+      <Link>Exceptions\BadUrlFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\FormatNotFoundException.cs">
+      <Link>Exceptions\FormatNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\InvalidApiKeyException.cs">
+      <Link>Exceptions\InvalidApiKeyException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\InvalidSignatureException.cs">
+      <Link>Exceptions\InvalidSignatureException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\LoginFailedInvalidTokenException.cs">
+      <Link>Exceptions\LoginFailedInvalidTokenException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\MethodNotFoundException.cs">
+      <Link>Exceptions\MethodNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\MissingSignatureException.cs">
+      <Link>Exceptions\MissingSignatureException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\PermissionDeniedException.cs">
+      <Link>Exceptions\PermissionDeniedException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\PhotoNotFoundException.cs">
+      <Link>Exceptions\PhotoNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\PhotosetNotFoundException.cs">
+      <Link>Exceptions\PhotosetNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\ServiceUnavailableException.cs">
+      <Link>Exceptions\ServiceUnavailableException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\UserNotFoundException.cs">
+      <Link>Exceptions\UserNotFoundException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\Exceptions\UserNotLoggedInInsufficientPermissionsException.cs">
+      <Link>Exceptions\UserNotLoggedInInsufficientPermissionsException.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\_NullKey.cs">
+      <Link>OpenCF\_NullKey.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Cipher.cs">
+      <Link>OpenCF\Cipher.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Const.cs">
+      <Link>OpenCF\Const.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Context.cs">
+      <Link>OpenCF\Context.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Crypto.cs">
+      <Link>OpenCF\Crypto.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\DiffHell.cs">
+      <Link>OpenCF\DiffHell.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Dsa.cs">
+      <Link>OpenCF\Dsa.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Enums.cs">
+      <Link>OpenCF\Enums.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Error.cs">
+      <Link>OpenCF\Error.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Format.cs">
+      <Link>OpenCF\Format.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Hash.cs">
+      <Link>OpenCF\Hash.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\HashAlgorithm.cs">
+      <Link>OpenCF\HashAlgorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\HMACSHA1.cs">
+      <Link>OpenCF\HMACSHA1.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Key.cs">
+      <Link>OpenCF\Key.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\KeyedHashAlgorithm.cs">
+      <Link>OpenCF\KeyedHashAlgorithm.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Mem.cs">
+      <Link>OpenCF\Mem.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Prov.cs">
+      <Link>OpenCF\Prov.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Rand.cs">
+      <Link>OpenCF\Rand.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Rsa.cs">
+      <Link>OpenCF\Rsa.cs</Link>
+    </Compile>
+    <Compile Include="..\Flickr\OpenCF\Structs.cs">
+      <Link>OpenCF\Structs.cs</Link>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\Flickr\License.txt">
+      <Link>License.txt</Link>
+    </None>
+  </ItemGroup>
+</Project>
