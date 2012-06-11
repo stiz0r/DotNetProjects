@@ -27,6 +27,8 @@ namespace FontGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
+            
+
             Player = new Player(this);
             BulletHandler = new BulletHandler(this);
             EnemyHandler = new EnemyHandler(this);
@@ -64,6 +66,9 @@ namespace FontGame
         {
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
+
+            EnemiesKilledFont = Content.Load<SpriteFont>("Fonts/EnemiesKilled");
+            
             Player.LoadContent();
             //BulletHandler.LoadContent();
             //EnemyHandler.LoadContent();
@@ -103,9 +108,12 @@ namespace FontGame
                     {
                         EnemyHandler.RemoveEnemy(enemy.Key);
                         BulletHandler.RemoveBullet(bullet.Key);
+                        EnemiesKilled++;
                     }
                 }
             }
+
+            
 
             base.Update(gameTime);
         }
@@ -122,6 +130,9 @@ namespace FontGame
             Player.Draw(gameTime, spriteBatch);
             BulletHandler.Draw(gameTime, spriteBatch);
             EnemyHandler.Draw(gameTime, spriteBatch);
+
+            spriteBatch.DrawString(EnemiesKilledFont, "Drepte: " + EnemiesKilled, new Vector2(0, 420), Color.White);
+
             spriteBatch.End();
 
             base.Draw(gameTime);
@@ -134,7 +145,12 @@ namespace FontGame
         }
 
 
+        
+
         private BulletHandler BulletHandler;
         private EnemyHandler EnemyHandler;
+
+        private SpriteFont EnemiesKilledFont;
+        private int EnemiesKilled;
     }
 }
