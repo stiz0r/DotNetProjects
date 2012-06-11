@@ -81,6 +81,9 @@ namespace FontGame
             base.Draw(gameTime);
         }
 
+
+
+
         private float xMove = 0;
         private float yMove = 0;
 
@@ -89,8 +92,8 @@ namespace FontGame
         public Vector2 Position;
         public Vector2 Heading;
         protected Vector2 Origin;
-        
 
-        protected Texture2D Texture;
+
+        public Texture2D Texture;
     }
 }

@@ -48,7 +48,7 @@ namespace FontGame
 
         public void LoadContent()
         {
-            texture = Game.Content.Load<Texture2D>("Enemies/EnemyCrap");
+            Texture = Game.Content.Load<Texture2D>("Enemies/EnemyCrap");
             base.LoadContent();
         }
 
@@ -97,13 +97,13 @@ namespace FontGame
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(texture, position, Color.White);
+            spriteBatch.Draw(Texture, position, Color.White);
 
             base.Draw(gameTime);
         }
 
 
-        Texture2D texture;
+        public Texture2D Texture;
         Vector2 position;
         Vector2 target;
 

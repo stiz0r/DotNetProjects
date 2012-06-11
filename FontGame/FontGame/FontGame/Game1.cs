@@ -88,12 +88,24 @@ namespace FontGame
         {
             // Allows the game to exit
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
-                this.Exit();
+                Exit();
 
             // TODO: Add your update logic here
             Player.Update(gameTime);
             BulletHandler.Update(gameTime);
             EnemyHandler.Update(gameTime, Player.Position);
+
+            foreach (KeyValuePair<Bullet, Rectangle> bullet in BulletHandler.GetRectangles())
+            {
+                foreach (KeyValuePair<Enemy, Rectangle> enemy in EnemyHandler.GetRectangles())
+                {
+                    if (bullet.Value.Intersects(enemy.Value))
+                    {
+                        EnemyHandler.RemoveEnemy(enemy.Key);
+                        BulletHandler.RemoveBullet(bullet.Key);
+                    }
+                }
+            }
 
             base.Update(gameTime);
         }

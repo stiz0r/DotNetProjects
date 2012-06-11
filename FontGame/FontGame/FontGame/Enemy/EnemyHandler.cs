@@ -31,6 +31,13 @@ namespace FontGame
             enemy.LoadContent();
             enemies.Add(enemy);
         }
+
+        public void RemoveEnemy(Enemy enemy)
+        {
+            enemies.Remove(enemy);
+        }
+
+
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
         /// to run.  This is where it can query for any required services and load content.
@@ -53,7 +60,7 @@ namespace FontGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public void Update(GameTime gameTime, Vector2 target)
         {
-            if(enemies.Count == 0)
+            if(enemies.Count < 4)
                 AddEnemy();
 
             // TODO: Add your update code here
@@ -82,6 +89,18 @@ namespace FontGame
             }
 
             base.Draw(gameTime);
+        }
+
+
+
+        public List<KeyValuePair<Enemy, Rectangle>> GetRectangles()
+        {
+            List<KeyValuePair<Enemy, Rectangle>> rectangles = new List<KeyValuePair<Enemy, Rectangle>>();
+            foreach (Enemy enemy in enemies)
+            {
+                rectangles.Add(new KeyValuePair<Enemy, Rectangle>(enemy, new Rectangle((int)enemy.Position.X, (int)enemy.Position.Y, enemy.Texture.Width, enemy.Texture.Height)));
+            }
+            return rectangles;
         }
     }
 
