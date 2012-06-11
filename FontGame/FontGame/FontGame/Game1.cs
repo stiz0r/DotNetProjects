@@ -28,6 +28,8 @@ namespace FontGame
             Content.RootDirectory = "Content";
 
             Player = new Player(this);
+            BulletHandler = new BulletHandler(this);
+            EnemyHandler = new EnemyHandler(this);
 
             // Frame rate is 30 fps by default for Windows Phone.
             TargetElapsedTime = TimeSpan.FromTicks(333333);
@@ -46,9 +48,10 @@ namespace FontGame
         {
             // TODO: Add your initialization logic here
 
-            
-            
+
             Player.Initialize();
+            BulletHandler.Initialize();
+            EnemyHandler.Initialize();
 
             base.Initialize();
         }
@@ -62,7 +65,8 @@ namespace FontGame
             // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
             Player.LoadContent();
-            
+            //BulletHandler.LoadContent();
+            //EnemyHandler.LoadContent();
             // TODO: use this.Content to load your game content here
         }
 
@@ -88,6 +92,8 @@ namespace FontGame
 
             // TODO: Add your update logic here
             Player.Update(gameTime);
+            BulletHandler.Update(gameTime);
+            EnemyHandler.Update(gameTime, Player.Position);
 
             base.Update(gameTime);
         }
@@ -102,9 +108,21 @@ namespace FontGame
 
             spriteBatch.Begin();
             Player.Draw(gameTime, spriteBatch);
+            BulletHandler.Draw(gameTime, spriteBatch);
+            EnemyHandler.Draw(gameTime, spriteBatch);
             spriteBatch.End();
 
             base.Draw(gameTime);
         }
+
+
+        public void AddBullet(Vector2 position, Vector2 heading, float rotationAngle)
+        {
+            BulletHandler.AddBullet(position, heading, rotationAngle);
+        }
+
+
+        private BulletHandler BulletHandler;
+        private EnemyHandler EnemyHandler;
     }
 }

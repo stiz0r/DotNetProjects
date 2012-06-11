@@ -113,28 +113,8 @@ namespace FontGame
                 Debug.WriteLine(radians);
                 RotationAngle = radians;
 
-
-                GunBullet bullet = new GunBullet(Game);
-                bullet.Initialize();
-                bullet.Position = new Vector2(Position.X, Position.Y);
-                bullet.Heading = tl.Position;
-                bullet.RotationAngle = RotationAngle;
-                
-                bullets.Add(bullet);
+                (Game as Game1).AddBullet(Position, tl.Position, RotationAngle);
             }
-
-
-            List<Bullet> removeBullets = new List<Bullet>();
-            foreach (Bullet bullet in bullets)
-            {
-                bullet.Update(gameTime);
-
-                if(Math.Abs(bullet.Position.X) > 2000 &&  Math.Abs(bullet.Position.Y) > 2000)
-                    removeBullets.Add(bullet);
-            }
-
-            // Clean up of bullets out of reach
-            removeBullets.ForEach(bullet => bullets.Remove(bullet));
 
 
             base.Update(gameTime);
@@ -145,10 +125,7 @@ namespace FontGame
         {
             spriteBatch.Draw(Texture, Position, null, Color.White, RotationAngle, Origin, 1f, SpriteEffects.None, 0f);
 
-            foreach (Bullet bullet in bullets)
-            {
-                bullet.Draw(gameTime, spriteBatch);
-            }
+
 
             base.Draw(gameTime);
         }
@@ -157,9 +134,7 @@ namespace FontGame
 
         #region Properties
 
-        private List<Bullet> bullets = new List<Bullet>();
-
-        private Vector2 Position;
+        public Vector2 Position;
         private Vector2 Target;
         private Vector2 Origin;
         private float RotationAngle;

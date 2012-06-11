@@ -10,16 +10,11 @@ namespace FontGame
     public class EnemyHandler : DrawableGameComponent
     {
         List<Enemy> enemies = new List<Enemy>();
-        bool gameOver = false;
+        
 
-        public bool GameOver
-        {
-            get { return gameOver; }
-            set { gameOver = value; }
-        }
 
-        public EnemyHandler(Game game)
-            : base(game)
+
+        public EnemyHandler(Game game) : base(game)
         {
             // TODO: Construct any child components here
         }
@@ -31,7 +26,10 @@ namespace FontGame
 
         public void AddEnemy()
         {
-            enemies.Add(new Enemy(Game));
+            Enemy enemy = new Enemy(Game);
+            enemy.Initialize();
+            enemy.LoadContent();
+            enemies.Add(enemy);
         }
         /// <summary>
         /// Allows the game component to perform any initialization it needs to before starting
@@ -46,7 +44,6 @@ namespace FontGame
 
         public void Clear()
         {
-            gameOver = false;
             enemies.Clear();
         }
 
@@ -56,19 +53,22 @@ namespace FontGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public void Update(GameTime gameTime, Vector2 target)
         {
+            if(enemies.Count == 0)
+                AddEnemy();
+
             // TODO: Add your update code here
-            Rectangle playerRect = new Rectangle((int)target.X, (int)target.Y, 64, 64);
+            //Rectangle playerRect = new Rectangle((int)target.X, (int)target.Y, 64, 64);
 
             foreach (Enemy e in enemies)
             {
                 e.Target = target;
                 e.Update(gameTime);
-                Rectangle enemyRect = new Rectangle((int)e.Position.X + 7, (int)e.Position.Y + 7, 32 - 7, 32 - 7);
+                //Rectangle enemyRect = new Rectangle((int)e.Position.X + 7, (int)e.Position.Y + 7, 32 - 7, 32 - 7);
 
-                if (playerRect.Intersects(enemyRect))
-                {
-                    gameOver = true;
-                }
+                //if (playerRect.Intersects(enemyRect))
+                //{
+                //    gameOver = true;
+                //}
             }
 
             base.Update(gameTime);

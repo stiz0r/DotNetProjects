@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace FontGame
 {
-    public class Enemy : Microsoft.Xna.Framework.DrawableGameComponent
+    public class Enemy : DrawableGameComponent
     {
 
 
@@ -48,7 +48,7 @@ namespace FontGame
 
         public void LoadContent()
         {
-            texture = Game.Content.Load<Texture2D>("ghost");
+            texture = Game.Content.Load<Texture2D>("Enemies/EnemyCrap");
             base.LoadContent();
         }
 
@@ -62,11 +62,11 @@ namespace FontGame
 
             if (position.X < target.X - 5)
             {
-                position.X += gameTime.ElapsedGameTime.Milliseconds * 0.04f;
+                position.X += gameTime.ElapsedGameTime.Milliseconds * 0.08f;
             }
             else if (position.X > target.X + 5)
             {
-                position.X -= gameTime.ElapsedGameTime.Milliseconds * 0.04f;
+                position.X -= gameTime.ElapsedGameTime.Milliseconds * 0.08f;
             }
             else
             {
@@ -75,11 +75,11 @@ namespace FontGame
 
             if (position.Y < target.Y - 5)
             {
-                position.Y += gameTime.ElapsedGameTime.Milliseconds * 0.04f;
+                position.Y += gameTime.ElapsedGameTime.Milliseconds * 0.08f;
             }
             else if (position.Y > target.Y + 5)
             {
-                position.Y -= gameTime.ElapsedGameTime.Milliseconds * 0.04f;
+                position.Y -= gameTime.ElapsedGameTime.Milliseconds * 0.08f;
             }
             else
             {
