@@ -118,5 +118,7 @@ namespace FontGame
             get { return position; }
             set { position = value; }
         }
+
+        public int Damage = 10;
     }
 }

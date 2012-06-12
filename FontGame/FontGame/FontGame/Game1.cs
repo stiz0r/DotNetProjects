@@ -100,9 +100,17 @@ namespace FontGame
             BulletHandler.Update(gameTime);
             EnemyHandler.Update(gameTime, Player.Position);
 
-            foreach (KeyValuePair<Bullet, Rectangle> bullet in BulletHandler.GetRectangles())
+            Rectangle playerRectangle = Player.GetRectangle();
+            foreach (KeyValuePair<Enemy, Rectangle> enemy in EnemyHandler.GetRectangles())
             {
-                foreach (KeyValuePair<Enemy, Rectangle> enemy in EnemyHandler.GetRectangles())
+                if(playerRectangle.Intersects(enemy.Value))
+                {
+                    Player.TakeDamage(enemy.Key.Damage);
+                    EnemyHandler.RemoveEnemy(enemy.Key);
+                    continue;
+                }
+
+                foreach (KeyValuePair<Bullet, Rectangle> bullet in BulletHandler.GetRectangles())
                 {
                     if (bullet.Value.Intersects(enemy.Value))
                     {
@@ -113,7 +121,13 @@ namespace FontGame
                 }
             }
 
-            
+
+            if (Player.IsDead())
+            {
+                // Do something
+            }
+
+
 
             base.Update(gameTime);
         }
@@ -132,6 +146,7 @@ namespace FontGame
             EnemyHandler.Draw(gameTime, spriteBatch);
 
             spriteBatch.DrawString(EnemiesKilledFont, "Drepte: " + EnemiesKilled, new Vector2(0, 420), Color.White);
+            spriteBatch.DrawString(EnemiesKilledFont, "Helse: " + Player.GetHealth(), new Vector2(0, 440), Color.White);
 
             spriteBatch.End();
 

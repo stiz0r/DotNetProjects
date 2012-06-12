@@ -131,6 +131,26 @@ namespace FontGame
         }
 
 
+        public Rectangle GetRectangle()
+        {
+            return new Rectangle((int) Position.X, (int) Position.Y, Texture.Width, Texture.Height);
+        }
+
+
+        public int GetHealth()
+        {
+            return Health;
+        }
+
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+        }
+
+        public bool IsDead()
+        {
+            return Health <= 0;
+        }
 
         #region Properties
 
