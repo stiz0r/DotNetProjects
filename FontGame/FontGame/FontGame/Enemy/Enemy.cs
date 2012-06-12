@@ -58,42 +58,47 @@ namespace FontGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            // TODO: Add your update code here
+            if (xMove == 0 || yMove == 0)
+            {
+                xMove = (Target.X - Position.X) / 1000;
+                yMove = (Target.Y - Position.Y) / 1000;
 
-            if (position.X < target.X - 5)
-            {
-                position.X += gameTime.ElapsedGameTime.Milliseconds * 0.08f;
-            }
-            else if (position.X > target.X + 5)
-            {
-                position.X -= gameTime.ElapsedGameTime.Milliseconds * 0.08f;
-            }
-            else
-            {
-                position.X = target.X;
+                float max = Math.Max(Math.Abs(xMove), Math.Abs(yMove));
+
+                if (max == Math.Abs(xMove))
+                {
+                    if (xMove >= 0)
+                    {
+                        yMove = yMove * Math.Abs(MaxSpeed / xMove);
+                        xMove = MaxSpeed;
+                    }
+                    else
+                    {
+                        yMove = yMove * Math.Abs(MaxSpeed / xMove);
+                        xMove = MaxSpeed * -1;
+                    }
+                }
+                else
+                {
+                    if (yMove >= 0)
+                    {
+                        xMove = xMove * Math.Abs(MaxSpeed / yMove);
+                        yMove = MaxSpeed;
+                    }
+                    else
+                    {
+                        xMove = xMove * Math.Abs(MaxSpeed / yMove);
+                        yMove = MaxSpeed * -1;
+                    }
+                }
             }
 
-            if (position.Y < target.Y - 5)
-            {
-                position.Y += gameTime.ElapsedGameTime.Milliseconds * 0.08f;
-            }
-            else if (position.Y > target.Y + 5)
-            {
-                position.Y -= gameTime.ElapsedGameTime.Milliseconds * 0.08f;
-            }
-            else
-            {
-                position.Y = target.Y;
-            }
-
+            position.X += gameTime.ElapsedGameTime.Milliseconds * xMove;
+            position.Y += gameTime.ElapsedGameTime.Milliseconds * yMove;
 
             base.Update(gameTime);
         }
 
-        public override void Draw(GameTime gameTime)
-        {
-            base.Draw(gameTime);
-        }
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
@@ -102,6 +107,14 @@ namespace FontGame
             base.Draw(gameTime);
         }
 
+
+        private float xMove = 0;
+        private float yMove = 0;
+        private const float _max_speed = 0.08f;
+        protected virtual float MaxSpeed
+        {
+            get { return _max_speed; }
+        }
 
         public Texture2D Texture;
         Vector2 position;

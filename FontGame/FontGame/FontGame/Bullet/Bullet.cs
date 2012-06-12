@@ -39,34 +39,45 @@ namespace FontGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
+            const float maxSpeed = 0.2f;
             // TODO: Add your update code here
             if (xMove == 0 || yMove == 0)
             {
                 xMove = (Heading.X - Position.X)/1000;
                 yMove = (Heading.Y - Position.Y)/1000;
+
+                float max = Math.Max(Math.Abs(xMove), Math.Abs(yMove));
+
+                if (max == Math.Abs(xMove))
+                {
+                    if(xMove >= 0)
+                    {
+                        yMove = yMove * Math.Abs(maxSpeed / xMove);
+                        xMove = maxSpeed;                        
+                    }
+                    else
+                    {
+                        yMove = yMove * Math.Abs(maxSpeed / xMove);
+                        xMove = maxSpeed*-1;
+                    }
+                }
+                else
+                {
+                    if(yMove >= 0)
+                    {
+                        xMove = xMove * Math.Abs(maxSpeed / yMove);
+                        yMove = maxSpeed;                        
+                    }
+                    else
+                    {
+                        xMove = xMove * Math.Abs(maxSpeed / yMove);
+                        yMove = maxSpeed*-1;
+                    }
+                }
             }
 
-            //Position -= Heading * 1 * (float)gameTime.ElapsedGameTime.TotalSeconds;
-
-
             Position.X += gameTime.ElapsedGameTime.Milliseconds * xMove;
-
-            //if (Position.X < Heading.X - 5)
-            //    Position.X += gameTime.ElapsedGameTime.Milliseconds*xMove;
-            //else if (Position.X > Heading.X + 5)
-            //    Position.X -= gameTime.ElapsedGameTime.Milliseconds*xMove;
-            //else
-            //    Position.X = Heading.X;
-
-
             Position.Y += gameTime.ElapsedGameTime.Milliseconds * yMove;
-
-            //if (Position.Y < Heading.Y - 5)
-            //    Position.Y += gameTime.ElapsedGameTime.Milliseconds*yMove;
-            //else if (Position.Y > Heading.Y + 5)
-            //    Position.Y -= gameTime.ElapsedGameTime.Milliseconds*yMove;
-            //else
-            //    Position.Y = Heading.Y;
 
             base.Update(gameTime);
         }
