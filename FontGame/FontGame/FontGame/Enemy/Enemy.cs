@@ -29,6 +29,8 @@ namespace FontGame
                 posY = -32;
             }
 
+            Health = 20;
+
             position = new Vector2(posX, posY);
             target = new Vector2();
 
@@ -108,13 +110,27 @@ namespace FontGame
         }
 
 
+        public void TakeDamage(int damage)
+        {
+            Health -= damage;
+        }
+
+        public bool IsDead()
+        {
+            return Health <= 0;
+        }
+
+
         private float xMove = 0;
         private float yMove = 0;
+        
         private const float _max_speed = 0.08f;
         protected virtual float MaxSpeed
         {
             get { return _max_speed; }
         }
+
+        protected int Health { get; set; }
 
         public Texture2D Texture;
         Vector2 position;

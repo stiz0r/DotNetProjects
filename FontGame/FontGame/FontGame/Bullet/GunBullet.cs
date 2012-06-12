@@ -25,5 +25,16 @@ namespace FontGame
             base.Initialize();
 
         }
+
+
+        protected override float MaxSpeed
+        {
+            get { return 0.2f; }
+        }
+
+        protected override int Damage
+        {
+            get { return 10; }
+        }
     }
 }

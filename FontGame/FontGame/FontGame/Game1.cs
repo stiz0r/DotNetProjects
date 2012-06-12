@@ -27,8 +27,6 @@ namespace FontGame
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 
-            
-
             Player = new Player(this);
             BulletHandler = new BulletHandler(this);
             EnemyHandler = new EnemyHandler(this);
@@ -48,9 +46,6 @@ namespace FontGame
         /// </summary>
         protected override void Initialize()
         {
-            // TODO: Add your initialization logic here
-
-
             Player.Initialize();
             BulletHandler.Initialize();
             EnemyHandler.Initialize();
@@ -64,15 +59,11 @@ namespace FontGame
         /// </summary>
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
             spriteBatch = new SpriteBatch(GraphicsDevice);
 
             EnemiesKilledFont = Content.Load<SpriteFont>("Fonts/EnemiesKilled");
-            
+            Background = Content.Load<Texture2D>("Backgrounds/Background1");
             Player.LoadContent();
-            //BulletHandler.LoadContent();
-            //EnemyHandler.LoadContent();
-            // TODO: use this.Content to load your game content here
         }
 
         /// <summary>
@@ -112,12 +103,18 @@ namespace FontGame
 
                 foreach (KeyValuePair<Bullet, Rectangle> bullet in BulletHandler.GetRectangles())
                 {
-                    if (bullet.Value.Intersects(enemy.Value))
-                    {
-                        EnemyHandler.RemoveEnemy(enemy.Key);
-                        BulletHandler.RemoveBullet(bullet.Key);
-                        EnemiesKilled++;
-                    }
+                    if (!bullet.Value.Intersects(enemy.Value)) 
+                        continue;
+
+                    enemy.Key.TakeDamage(bullet.Key.GetDamage());
+                    BulletHandler.RemoveBullet(bullet.Key);
+
+                    if (!enemy.Key.IsDead()) 
+                        continue;
+
+                    EnemyHandler.RemoveEnemy(enemy.Key);
+                    EnemiesKilled++;
+                    break;
                 }
             }
 
@@ -141,6 +138,9 @@ namespace FontGame
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
             spriteBatch.Begin();
+
+            spriteBatch.Draw(Background, new Vector2(0, 0), Color.White);
+
             Player.Draw(gameTime, spriteBatch);
             BulletHandler.Draw(gameTime, spriteBatch);
             EnemyHandler.Draw(gameTime, spriteBatch);
@@ -160,7 +160,8 @@ namespace FontGame
         }
 
 
-        
+
+        private Texture2D Background;
 
         private BulletHandler BulletHandler;
         private EnemyHandler EnemyHandler;

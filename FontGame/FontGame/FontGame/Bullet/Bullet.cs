@@ -39,8 +39,6 @@ namespace FontGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         public override void Update(GameTime gameTime)
         {
-            const float maxSpeed = 0.2f;
-            // TODO: Add your update code here
             if (xMove == 0 || yMove == 0)
             {
                 xMove = (Heading.X - Position.X)/1000;
@@ -52,26 +50,26 @@ namespace FontGame
                 {
                     if(xMove >= 0)
                     {
-                        yMove = yMove * Math.Abs(maxSpeed / xMove);
-                        xMove = maxSpeed;                        
+                        yMove = yMove * Math.Abs(MaxSpeed / xMove);
+                        xMove = MaxSpeed;                        
                     }
                     else
                     {
-                        yMove = yMove * Math.Abs(maxSpeed / xMove);
-                        xMove = maxSpeed*-1;
+                        yMove = yMove * Math.Abs(MaxSpeed / xMove);
+                        xMove = MaxSpeed * -1;
                     }
                 }
                 else
                 {
                     if(yMove >= 0)
                     {
-                        xMove = xMove * Math.Abs(maxSpeed / yMove);
-                        yMove = maxSpeed;                        
+                        xMove = xMove * Math.Abs(MaxSpeed / yMove);
+                        yMove = MaxSpeed;                        
                     }
                     else
                     {
-                        xMove = xMove * Math.Abs(maxSpeed / yMove);
-                        yMove = maxSpeed*-1;
+                        xMove = xMove * Math.Abs(MaxSpeed / yMove);
+                        yMove = MaxSpeed * -1;
                     }
                 }
             }
@@ -85,15 +83,21 @@ namespace FontGame
 
         public void Draw(GameTime gameTime, SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(Texture, Position, Color.White);
             spriteBatch.Draw(Texture, Position, null, Color.White, RotationAngle, Origin, 1f, SpriteEffects.None, 0f);
-
 
             base.Draw(gameTime);
         }
 
 
+        public int GetDamage()
+        {
+            return Damage;
+        }
 
+        #region Properties
+
+        protected abstract float MaxSpeed { get; }
+        protected abstract int Damage { get; }
 
         private float xMove = 0;
         private float yMove = 0;
@@ -106,5 +110,7 @@ namespace FontGame
 
 
         public Texture2D Texture;
+
+        #endregion
     }
 }
